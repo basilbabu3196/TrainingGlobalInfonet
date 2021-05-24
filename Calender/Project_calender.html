@@ -8,6 +8,7 @@
 
 
         <link href="project.css" rel="stylesheet">
+      
     </head>
     <body>
 <div align="center">
@@ -132,15 +133,24 @@
                   </div>
               
                   <div class="container">
-                    <div class="data12"></div>
+                    <div class="data12" id="data12"></div>
               
                    
-                    <input type="text" placeholder="Enter event" name="event" required>
+                    <input type="text" placeholder="Enter event" id="data" name="event" required>
                     <label for="psw"><b></b></label>
-                    <button type="submit">ADD EVENTS</button>
+                    <button type="submit" onclick="myFunction()">ADD EVENTS</button>
                 
                   </div>
-
+                  <script>
+                    var eventes = ["event"];
+                    document.getElementById("data12").innerHTML = eventes;
+                    
+                    function myFunction() {
+            var kiwi=document.getElementById("data").value
+                        eventes.push(kiwi);
+                      document.getElementById("data12").innerHTML = eventes;
+                    }
+                    </script>
 
 
 
@@ -148,4 +158,5 @@
         </div>
 
     </body>
+   
 </html>

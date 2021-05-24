@@ -1,6 +1,6 @@
 .outline{
          width: 1100px;
-         height: 624px;
+         height: 676px;
          border: black;
          border-style: double;   
          background-color: rgba(247, 247, 247, 0.966);
@@ -21,6 +21,10 @@
          font-size: 30px;
          font-family: Georgia, 'Times New Roman', Times, serif;
        
+        }
+        .bod
+        {
+          text-align: center;
         }
         /* TrainingGlobalInfonet  */
   .text1
@@ -53,12 +57,21 @@
          .tds
          {
            color: black;
+         
+         }
+         .tds:hover
+         {
+           background-color: greenyellow;
+          
          }
          .tds1
          {
            color: rgb(255, 0, 0);
          }
-
+         .tds1:hover{
+           background-color: red;
+           color: royalblue;
+         }
          input[type=text], input[type=password] {
             width: 65%;
             padding: 12px 20px;
