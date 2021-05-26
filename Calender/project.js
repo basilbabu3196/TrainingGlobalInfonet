@@ -1,3 +1,5 @@
+
+
 var dt = new Date();
 function renderDate() {
     dt.setDate(1);
@@ -38,7 +40,7 @@ function renderDate() {
     for (i = 1; i <= endDate; i++) {
         if (i == today.getDate() && dt.getMonth() == today.getMonth()) cells += "<div class='today'>" + i + "</div>";
         else
-            cells += "<div>" + i + "</div>";
+            cells += "<div >" + i + "</div>";
     }
     document.getElementsByClassName("days")[0].innerHTML = cells;
 
@@ -51,4 +53,12 @@ function moveDate(para) {
         dt.setMonth(dt.getMonth() + 1);
     }
     renderDate();
+}
+var events = [""];
+document.getElementById("disevent").innerHTML = events;
+
+function myFunction() {
+    let evt=document.getElementById("evnt").value
+    events.push(evt);
+  document.getElementById("disevent").innerHTML = events;
 }

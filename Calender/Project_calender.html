@@ -30,12 +30,34 @@
                 <div>Fri</div>
                 <div>Sat</div>
             </div>
-            <div class="days">
+            <div class="days" onclick="document.getElementById('id01').style.display='block'">
 
             </div>
         </div>
     </div>
-   
+    <div id="id01" class="modal">
+          
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">EVENTS
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+           
+          </div>
+      
+          <div class="container">
+           <div class="disevent" id="disevent">
+
+           </div>
+         <center> <input type="text" id="evnt"> <br><button type="submit" onclick="myFunction()">Event</button>&nbsp;<input type="reset" value="Cancel"></center>
+         
+          </div>
+      
+          <div class="container" style="background-color:#f1f1f1">
+          
+           
+          </div>
+        </form>
+      </div>
+     
 </body>
 
 </html>
