@@ -114,7 +114,7 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
           }
-          input[type=reset]{
+          input[type=reset],[type=submit]{
             background-color: #f7003e;
             color: rgb(0, 0, 0);
             padding: 14px 20px;
@@ -126,7 +126,7 @@
           
           /* Set a style for all buttons */
           button {
-            background-color: #04AA6D;
+            background-color: #00e792;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
@@ -236,4 +236,7 @@
               margin: 35px;
               border-style: groove;
               border-color: blueviolet;
+              color: blueviolet;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+              font-size: 50px;
           }
