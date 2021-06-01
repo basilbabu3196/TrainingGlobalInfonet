@@ -35,6 +35,16 @@ function Calender() {
     ]
    var monthdata = months[dt.getMonth()];
    var days = dt.toDateString();
+   var cells = "";
+   for (var x = day; x > 0; x--) {
+       cells += "<div class='prev_date'>" + (prevDate - x + 1) + "</div>";
+   }
+   console.log(day);
+   for (var i = 1; i <= endDate; i++) {
+    if (i == today.getDate() && dt.getMonth() == today.getMonth()) cells += "<div class='today'>" + i + "</div>";
+    else
+        cells += "<div >" + i + "</div>";
+}
     const myFunction = (event) => {
         event.preventDefault();
       
@@ -66,7 +76,9 @@ function Calender() {
                     <div>Sat</div>
                 </div>
                 <div class="days" >
-
+                {cells.map((value, index) => {
+        return <div  key={index}>{value}</div>
+      })}
                 </div>
             </div>
         </div>
