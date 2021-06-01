@@ -37,6 +37,25 @@ function Calender() {
         </div>
 
     </div>
+    <div id="id01" class="modal">
+            
+            <form class="modal-content animate" action="/action_page.php" method="post">
+                <div class="imgcontainer">EVENTS
+                    <span class="close" title="Close Modal">&times;</span>
+                
+                </div>
+            
+                <div class="container">
+                    <div class="disevent" id="disevent">
+
+                    </div>
+                    <center> <input type="text" id="evnt"></input> <br></br><button type="submit" onclick="myFunction()">Event</button>&nbsp;<input type="submit" value="Clear"></input></center>
+                
+                </div>
+            
+               
+            </form>
+        </div>
     </div>
    </center>
 }
