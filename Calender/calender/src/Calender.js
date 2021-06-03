@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useHistory} from  'react-router-dom'
 import './calender.css';
+var dt = new Date();
+ function renderDate(){
 
-function Calender() {
-    var dt = new Date();
-    dt.setDate(1);
+    
+    dt.setDate(2);
     var day = dt.getDay();
     var today = new Date();
     var endDate = new Date(
@@ -37,6 +38,7 @@ function Calender() {
    var days = dt.toDateString();
    var cells = [];
    var cell=[];
+   var cels=[];
    for (var x = day; x > 0; x--) {
       cell.push(prevDate - x + 1)
    }
@@ -45,6 +47,16 @@ function Calender() {
     if (i == today.getDate() && dt.getMonth() == today.getMonth())  cells.push(i)
     else
     cells.push(i)
+}
+
+
+const moveDate = (para) => {
+    if(para == "prev") {
+        dt.setMonth(dt.getMonth() - 1);
+    } else if(para == "next") {
+        dt.setMonth(dt.getMonth() + 1);
+    }
+    renderDate();
 }
     const myFunction = (event) => {
         event.preventDefault();
@@ -56,16 +68,16 @@ function Calender() {
     <div class="wrapper">
             <div class="calendar">
                 <div class="month">
-                    <div class="prev">
+                    <button class="prev" onClick={() => moveDate('prev')}>
                         <span>&#10094;</span>
-                    </div>
+                    </button>
                         <div>
                             <h2 id="month">{monthdata}</h2>
                             <p id="date_str">{days}</p>
                         </div>
-                    <div class="next" >
+                    <button class="next" onClick={() => moveDate('next')}>
                         <span>&#10095;</span>
-                    </div>
+                    </button>
                 </div>
                 <div class="weekdays">
                     <div>Sun</div>
@@ -83,6 +95,7 @@ function Calender() {
                 {cells.map((user) => (
         <div>{user}</div>
       ))}
+       
                 </div>
             </div>
         </div>
@@ -110,4 +123,4 @@ function Calender() {
     </div>
    </center>
 }
-export default Calender;
+export default renderDate;
