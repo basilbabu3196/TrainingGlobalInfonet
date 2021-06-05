@@ -5,8 +5,13 @@ import './calender.css';
 var dt = new Date();
  function renderDate(){
 
+  var state={
+
+        curTime : new Date().toLocaleString(),
     
-    dt.setDate(2);
+      }
+      var firstStringChar = state.curTime.charAt(0);
+    dt.setDate(firstStringChar);
     var day = dt.getDay();
     var today = new Date();
     var endDate = new Date(
