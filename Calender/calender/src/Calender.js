@@ -60,10 +60,10 @@ var dt = new Date();
 
 
 
-const moveDate = (para) => {
+function moveDate(para) {
     if(para == "prev") {
         dt.setMonth(dt.getMonth() - 1);
-    } else if(para == "next") {
+    } else if(para == 'next') {
         dt.setMonth(dt.getMonth() + 1);
     }
     RenderDate();
@@ -71,7 +71,11 @@ const moveDate = (para) => {
    
     const [showText, setShowText] = useState(false);
 
-  const onClick = () => setShowText(true);
+  const onClick = (user) => {
+    localStorage.setItem('event', user);
+    localStorage.setItem('eventmont', monthdata);
+      setShowText(true)
+    };
   const hideModal = () => setShowText(false);
     return<center><div> <div className="card-header">
     <h1>CALENDER</h1>
@@ -79,14 +83,14 @@ const moveDate = (para) => {
     <div class="wrapper">
             <div class="calendar">
                 <div class="month">
-                    <div class="prev" >
+                    <div class="prev" onClick={() => moveDate("prev")}>
                         <span>&#10094;</span>
                     </div>
                         <div>
                             <h2 id="month">{monthdata}</h2>
                             <p id="date_str">{firstStringChar}th {monthdata} {LastStringChar}</p>
                         </div>
-                    <div class="next" >
+                    <div class="next" onClick={() => moveDate("prev")}>
                         <span>&#10095;</span>
                     </div>
                 </div>
@@ -107,7 +111,7 @@ const moveDate = (para) => {
  
  cells.map((user) => (
          
-    <div onClick={onClick}>{user}</div>
+    <div onClick={() => onClick(user)}>{user}</div>
  
      ))}
            
@@ -120,7 +124,7 @@ const moveDate = (para) => {
     </div>
   
     </div>
-    {showText ? <Model handleClose={hideModal}/> : null}
+    {showText ? <Model handleClose={hideModal} user="user" /> : null}
    </center>
 }
 
