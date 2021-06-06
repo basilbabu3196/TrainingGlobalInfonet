@@ -106,39 +106,13 @@ body {
     font-weight: 500;
 }
 
-input[type=text] {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  input[type=reset],[type=submit]{
-    background-color: #f7003e;
-    color: rgb(0, 0, 0);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 15%;
-  }
+
+ 
   
   /* Set a style for all buttons */
-  button {
-    background-color: #00e792;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 15%;
-  }
+ 
   
-  button:hover {
-    opacity: 0.8;
-  }
-  
+ 
   /* Extra styles for the cancel button */
   .cancelbtn {
     width: auto;
@@ -240,3 +214,48 @@ input[type=text] {
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 50px;
   }
+  .d {
+    position: fixed;
+   top:100px;
+  left:400px;
+   width:600px;
+   height:400px;
+   background-color: #c7c7c7;
+  
+    }
+    .x{
+     position: absolute;
+      top: 0px;
+      right: 0px;
+      height: 50px;
+      width: 50px;
+      color: #000;
+      background-color: #e7003a;
+    }
+    .event{  position: absolute;
+             bottom: 30px;
+              left: 10px;
+            width: 300px;
+            padding: 10px 10px;
+    }
+    .evt
+    {  
+      position: absolute;
+      bottom:100px;
+      left: 10px;
+      width:500px;
+      height:250px; 
+      border: black;
+      border-style: groove;
+    }
+    .EVNT
+    {
+      position: absolute;
+      bottom: 30px;
+      right: 80px;
+      padding:10px 24px;
+      color: rgb(250, 250, 250);
+      background-color: rgb(7, 72, 204);
+      width: 160px;
+      height: 50px;
+    }

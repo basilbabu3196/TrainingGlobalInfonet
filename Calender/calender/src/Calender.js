@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useHistory} from  'react-router-dom'
+import {Model} from './model.js'
 import './calender.css';
 var dt = new Date();
- function renderDate(){
 
+ function RenderDate(){
+    
   var state={
 
         curTime : new Date().toLocaleString(),
+
     
       }
-      var firstStringChar = state.curTime.charAt(0);
-    dt.setDate(firstStringChar);
+      var firstStringChar = state.curTime.substring(0, 1);
+      var LastStringChar = state.curTime.substring(4,8);
+    dt.setDate(1);
     var day = dt.getDay();
     var today = new Date();
     var endDate = new Date(
@@ -55,34 +59,36 @@ var dt = new Date();
 }
 
 
+
 const moveDate = (para) => {
     if(para == "prev") {
         dt.setMonth(dt.getMonth() - 1);
     } else if(para == "next") {
         dt.setMonth(dt.getMonth() + 1);
     }
-    renderDate();
+    RenderDate();
 }
-    const myFunction = (event) => {
-        event.preventDefault();
-      
-    }
    
+    const [showText, setShowText] = useState(false);
+
+  const onClick = () => setShowText(true);
+  const hideModal = () => setShowText(false);
     return<center><div> <div className="card-header">
     <h1>CALENDER</h1>
+    
     <div class="wrapper">
             <div class="calendar">
                 <div class="month">
-                    <button class="prev" onClick={() => moveDate('prev')}>
+                    <div class="prev" >
                         <span>&#10094;</span>
-                    </button>
+                    </div>
                         <div>
                             <h2 id="month">{monthdata}</h2>
-                            <p id="date_str">{days}</p>
+                            <p id="date_str">{firstStringChar}th {monthdata} {LastStringChar}</p>
                         </div>
-                    <button class="next" onClick={() => moveDate('next')}>
+                    <div class="next" >
                         <span>&#10095;</span>
-                    </button>
+                    </div>
                 </div>
                 <div class="weekdays">
                     <div>Sun</div>
@@ -93,39 +99,29 @@ const moveDate = (para) => {
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
-                <div class="days" >
+                <div class="days"  >
                 {cell.map((user) => (
         <div className="prev_date">{user}</div>
       ))}
-                {cells.map((user) => (
-        <div>{user}</div>
-      ))}
+ {
+ 
+ cells.map((user) => (
+         
+    <div onClick={onClick}>{user}</div>
+ 
+     ))}
+           
+           
        
                 </div>
             </div>
         </div>
 
     </div>
-    <div id="id01" class="modal">
-            
-            <form class="modal-content animate" onSubmit={myFunction} method="post">
-                <div class="imgcontainer">EVENTS
-                    <span class="close" title="Close Modal">&times;</span>
-                
-                </div>
-            
-                <div class="container">
-                    <div class="disevent" id="disevent">
-
-                    </div>
-                    <center> <input type="text" id="evnt"></input> <br></br><button type="submit" onclick="myFunction()">Event</button>&nbsp;<input type="submit" value="Clear"></input></center>
-                
-                </div>
-            
-               
-            </form>
-        </div>
+  
     </div>
+    {showText ? <Model handleClose={hideModal}/> : null}
    </center>
 }
-export default renderDate;
+
+export default RenderDate;
