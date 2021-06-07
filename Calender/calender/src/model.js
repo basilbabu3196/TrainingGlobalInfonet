@@ -7,7 +7,7 @@ const Model = ({handleClose},{user}) => {
 const datea= localStorage.getItem('event');
 const eventmont=localStorage.getItem('eventmont');
   const eventChange=(event)=>{
-    setevent(event.target.value)
+    setevent(eventes+event.target.value)
   
   }
   

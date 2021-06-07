@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useHistory} from  'react-router-dom'
 import {Model} from './model.js'
@@ -6,6 +6,10 @@ import './calender.css';
 var dt = new Date();
 
  function RenderDate(){
+
+    const [dtMonth,setDtMonth] = useState(dt.getMonth())
+    const [cells,setCells] = useState([])
+    const [cell,setCell] = useState([])
     
   var state={
 
@@ -44,29 +48,37 @@ var dt = new Date();
         "December"
     ]
    var monthdata = months[dt.getMonth()];
-   var days = dt.toDateString();
-   var cells = [];
-   var cell=[];
-   var cels=[];
-   for (var x = day; x > 0; x--) {
-      cell.push(prevDate - x + 1)
-   }
-   console.log(day);
-   for (var i = 1; i <= endDate; i++) {
-    if (i == today.getDate() && dt.getMonth() == today.getMonth())  cells.push(i)
-    else
-    cells.push(i)
-}
+   console.log(dt.getMonth())
+var years= dt.getFullYear()
+   useEffect(()=>{
+var tcells = []
+var tcell = []
+    for (var x = day; x > 0; x--) {
+        tcell.push(prevDate - x + 1)
+     }
+     console.log(day);
+     for (var i = 1; i <= endDate; i++) {
+      if (i == today.getDate() && dt.getMonth() == today.getMonth())  tcells.push(i)
+      else
+      tcells.push(i)
+  }
+  setCell(tcell)
+  setCells(tcells)
+   },[dtMonth])
+
 
 
 
 function moveDate(para) {
+
     if(para == "prev") {
+        setDtMonth(dt.getMonth() - 1)
         dt.setMonth(dt.getMonth() - 1);
     } else if(para == 'next') {
+        setDtMonth(dt.getMonth() + 1)
         dt.setMonth(dt.getMonth() + 1);
     }
-    RenderDate();
+    //RenderDate();
 }
    
     const [showText, setShowText] = useState(false);
@@ -88,9 +100,9 @@ function moveDate(para) {
                     </div>
                         <div>
                             <h2 id="month">{monthdata}</h2>
-                            <p id="date_str">{firstStringChar}th {monthdata} {LastStringChar}</p>
+                           <p>{years}</p>
                         </div>
-                    <div class="next" onClick={() => moveDate("prev")}>
+                    <div class="next" onClick={() => moveDate("next")}>
                         <span>&#10095;</span>
                     </div>
                 </div>
@@ -111,7 +123,9 @@ function moveDate(para) {
  
  cells.map((user) => (
          
-    <div onClick={() => onClick(user)}>{user}</div>
+    <div
+     {...(user === today.getDate() && dt.getMonth() == today.getMonth() && dt.getFullYear() === today.getFullYear() ? { className : "currentDate" } : null )}
+    onClick={() => onClick(user)}>{user}</div>
  
      ))}
            
