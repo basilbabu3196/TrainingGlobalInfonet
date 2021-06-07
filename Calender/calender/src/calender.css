@@ -74,7 +74,7 @@ body {
 
 .currentDate {
     background-color: #ffdf28;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 .days div:hover {

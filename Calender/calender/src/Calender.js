@@ -66,21 +66,24 @@ var tcell = []
   setCells(tcells)
    },[dtMonth])
 
+       
+                                                        //Date and Month Change
 
+        function moveDate(para) {
 
-
-function moveDate(para) {
-
-    if(para == "prev") {
-        setDtMonth(dt.getMonth() - 1)
-        dt.setMonth(dt.getMonth() - 1);
-    } else if(para == 'next') {
-        setDtMonth(dt.getMonth() + 1)
-        dt.setMonth(dt.getMonth() + 1);
-    }
-    //RenderDate();
-}
+            if(para == "prev") {
+                setDtMonth(dt.getMonth() - 1)
+                dt.setMonth(dt.getMonth() - 1);
+            } else if(para == 'next') {
+                setDtMonth(dt.getMonth() + 1)
+                dt.setMonth(dt.getMonth() + 1);
+            }
+           
+        }
    
+                                                        //Add Calender Events(tuggle)
+
+
     const [showText, setShowText] = useState(false);
 
   const onClick = (user) => {
@@ -89,11 +92,18 @@ function moveDate(para) {
       setShowText(true)
     };
   const hideModal = () => setShowText(false);
-    return<center><div> <div className="card-header">
+
+
+
+
+
+
+return<center><div> <div className="card-header">
     <h1>CALENDER</h1>
     
     <div class="wrapper">
             <div class="calendar">
+               
                 <div class="month">
                     <div class="prev" onClick={() => moveDate("prev")}>
                         <span>&#10094;</span>
@@ -106,6 +116,16 @@ function moveDate(para) {
                         <span>&#10095;</span>
                     </div>
                 </div>
+               
+               
+                                          
+                                          
+                                            {/*       Weekdays           */}
+               
+
+
+
+               
                 <div class="weekdays">
                     <div>Sun</div>
                     <div>Mon</div>
@@ -115,13 +135,41 @@ function moveDate(para) {
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
+               
+                                                {/* 
+                                                    
+                                                    
+                                                ADD PREVIOUS Month Days
+                                                
+                                                
+                                                */} 
+
+
+
+               
                 <div class="days"  >
-                {cell.map((user) => (
+         {
+             
+         cell.map((user) => (
         <div className="prev_date">{user}</div>
-      ))}
- {
+                 ))
+      
+          }
+
+
+
+                                                {/* 
+                                                    
+                                                    
+                                                ADD THIS Month Days
+                                                
+                                                
+                                                */} 
+
+
+    {
  
- cells.map((user) => (
+        cells.map((user) => (
          
     <div
      {...(user === today.getDate() && dt.getMonth() == today.getMonth() && dt.getFullYear() === today.getFullYear() ? { className : "currentDate" } : null )}
@@ -138,8 +186,19 @@ function moveDate(para) {
     </div>
   
     </div>
+
+                                                  
+                                                  
+                                                        {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
+
+
     {showText ? <Model handleClose={hideModal} user="user" /> : null}
+
+
+
    </center>
 }
+
+
 
 export default RenderDate;
