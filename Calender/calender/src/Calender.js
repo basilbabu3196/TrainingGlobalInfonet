@@ -136,6 +136,9 @@ return<center><div> <div className="card-header">
                     <div>Sat</div>
                 </div>
                
+
+
+
                                                 {/* 
                                                     
                                                     
@@ -143,18 +146,20 @@ return<center><div> <div className="card-header">
                                                 
                                                 
                                                 */} 
-
-
-
-               
-                <div class="days"  >
+           <div class="days"  >
          {
-             
+
          cell.map((user) => (
         <div className="prev_date">{user}</div>
                  ))
       
           }
+
+
+
+
+
+
 
 
 
@@ -165,13 +170,11 @@ return<center><div> <div className="card-header">
                                                 
                                                 
                                                 */} 
-
-
     {
  
         cells.map((user) => (
          
-    <div
+    <div id="dates"
      {...(user === today.getDate() && dt.getMonth() == today.getMonth() && dt.getFullYear() === today.getFullYear() ? { className : "currentDate" } : null )}
     onClick={() => onClick(user)}>{user}</div>
  

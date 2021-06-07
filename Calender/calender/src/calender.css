@@ -24,8 +24,8 @@ body {
 
 .calendar {
     margin: auto;
-    width: 700px;
-    height: 600px;
+    width: 900px;
+    height: 550px;
     background-color: #fff;
     box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
 
@@ -43,8 +43,8 @@ body {
 }
 
 .weekdays {
-    background-color: #aef77e;
-    color: rgb(16, 78, 0);
+    background-color: #b1b1b1;
+    color: rgb(0, 0, 0);
     padding: 7px 0;
     display: flex;
 }
@@ -72,9 +72,16 @@ body {
     color: #999;
 }
 
+#dates
+{
+  border: rgb(212, 205, 218);
+ 
+  
+}
+
 .currentDate {
-    background-color: #ffdf28;
-    color: rgb(0, 0, 0);
+    background-color: #abb3aa;
+    color: rgb(68, 49, 49);
 }
 
 .days div:hover {
@@ -219,8 +226,8 @@ body {
    top:100px;
   left:400px;
    width:600px;
-   height:400px;
-   background-color: #c7c7c7;
+   height:500px;
+   background-color: #ebebeb;
   
     }
     .x{
@@ -229,7 +236,7 @@ body {
       right: 0px;
       height: 50px;
       width: 50px;
-      color: #000;
+      color: rgba(255, 255, 255, 0.877);
       background-color: #e7003a;
     }
     .event{  position: absolute;
@@ -244,7 +251,7 @@ body {
       bottom:100px;
       left: 10px;
       width:500px;
-      height:250px; 
+      height:350px; 
       border: black;
       border-style: groove;
     }
@@ -252,11 +259,12 @@ body {
     {
       position: absolute;
       bottom: 30px;
-      right: 80px;
+      right: 100px;
       padding:10px 24px;
       color: rgb(250, 250, 250);
       background-color: rgb(7, 72, 204);
-      width: 160px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      width: 110px;
       height: 50px;
     }
     .addEvt
@@ -266,6 +274,24 @@ body {
       left: 200px;
       font-size: larger;
       font-weight: 800;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      color: rgb(47, 10, 151);
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: rgb(94, 59, 190);
+    }
+    .listdata
+    {
+     
+      
+      padding: 5px 2px;
+      background-color: rgb(120, 221, 73);
+      border-radius: 5px;
+      width: 300px;
+    }
+    .mdj
+    {
+     
+      position: absolute;
+      left:100px;
+      color: rgb(25, 0, 255);
+      padding: 5px 2px;
+      
     }
