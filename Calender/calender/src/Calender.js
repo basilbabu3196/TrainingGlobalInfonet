@@ -10,6 +10,7 @@ var dt = new Date();
     const [dtMonth,setDtMonth] = useState(dt.getMonth())
     const [cells,setCells] = useState([])
     const [cell,setCell] = useState([])
+    const [celle,setCelle] = useState([])
     
   var state={
 
@@ -19,6 +20,9 @@ var dt = new Date();
       }
       var firstStringChar = state.curTime.substring(0, 1);
       var LastStringChar = state.curTime.substring(4,8);
+     
+     
+     // const Ent= localStorage.getItem('evt');
     dt.setDate(1);
     var day = dt.getDay();
     var today = new Date();
@@ -49,21 +53,32 @@ var dt = new Date();
     ]
    var monthdata = months[dt.getMonth()];
    console.log(dt.getMonth())
-var years= dt.getFullYear()
+    var years= dt.getFullYear()
    useEffect(()=>{
-var tcells = []
-var tcell = []
+    var tcells = []
+    var tcell = []
+    var tcelle=[]
     for (var x = day; x > 0; x--) {
         tcell.push(prevDate - x + 1)
      }
      console.log(day);
      for (var i = 1; i <= endDate; i++) {
+      
       if (i == today.getDate() && dt.getMonth() == today.getMonth())  tcells.push(i)
       else
       tcells.push(i)
   }
+  for (var i = 1; i <= endDate; i++) {
+
+   var Ent=localStorage.getItem(i+monthdata);
+  
+   tcelle.push(i+Ent)
+   
+}
+
   setCell(tcell)
   setCells(tcells)
+  setCelle(tcelle)
    },[dtMonth])
 
        
@@ -98,10 +113,8 @@ var tcell = []
 
 
 
-return<center><div> <div className="card-header">
-    <h1>CALENDER</h1>
-    
-    <div class="wrapper">
+return<center><div className="card-header">
+     <div class="wrapper">
             <div class="calendar">
                
                 <div class="month">
@@ -183,15 +196,28 @@ return<center><div> <div className="card-header">
            
        
                 </div>
+               
             </div>
+          
         </div>
 
     </div>
-  
-    </div>
+    <div className="repevent" ><center><h3><u> Events&nbsp; &nbsp; In&nbsp;&nbsp;  {monthdata}</u></h3></center>
+
+{
+
+celle.map((user) => (
+<div>{user}</div>
+))
+
+}
+
+
+</div>   
+    
 
                                                   
-                                                  
+                                               
                                                         {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
 
 
