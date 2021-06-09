@@ -69,16 +69,38 @@ body {
     padding: 10px 0;
     margin-bottom: 10px;
     transition: all 0.4s;
+    
 }
 
 .prev_date {
     color: #999;
 }
+.prev_date .tooltiptex {
+  position: fixed;
+  top:0px;
 
-#dates
+  visibility: hidden;
+}
+.prev_date:hover .tooltiptex {
+  visibility: visible;
+}
+
+#card
 {
   border: rgb(212, 205, 218);
+  color: #130f30;
  
+}
+#card #tooltiptext {
+  position: fixed;
+ 
+  top:240px;
+  visibility: hidden;
+  color: #999;
+}
+#card:hover #tooltiptext {
+  visibility: visible;
+  color: #999;
 }
 
 .currentDate {
@@ -321,4 +343,12 @@ body {
       text-align: center;
       width:18.28%;
       color: rgb(0, 0, 0);
+  }
+
+  #showevt
+  {
+    position: absolute;
+    top: 150px;
+    right: 590px;
+
   }

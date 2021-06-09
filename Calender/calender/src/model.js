@@ -26,7 +26,7 @@ localStorage.setItem(datee,toDos)
        </div><br></br></div> )
   })}
       </div>
-      <button className="x" onClick={handleClose}>X</button><br></br><br></br>
+     <button className="x" onClick={handleClose}>X</ button><br></br><br></br>
       <br></br><br></br>
       <input value={toDo}  onChange={(e)=>setTodo(e.target.value)} type="text" className="event" placeholder="🖊️ Bithday,Holyday,etc..." />
 

@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { useHistory} from  'react-router-dom'
-import {Model} from './model.js'
-import {Modeleve} from './Modeleve.js'
-import './calender.css';
+
+import './Modeleve.css';
 var dt = new Date();
 
- function RenderDate(){
+const Modeleve = ({handleCloses}) => {
 
     const [dtMonth,setDtMonth] = useState(dt.getMonth())
     const [cells,setCells] = useState([])
     const [cell,setCell] = useState([])
-    const [celle,setCelle] = useState([])
+    
     
   var state={
 
@@ -58,28 +57,21 @@ var dt = new Date();
    useEffect(()=>{
     var tcells = []
     var tcell = []
-    var tcelle=[]
+  
     for (var x = day; x > 0; x--) {
         tcell.push(prevDate - x + 1)
      }
      console.log(day);
      for (var i = 1; i <= endDate; i++) {
       
-      if (i == today.getDate() && dt.getMonth() == today.getMonth())  tcells.push(i)
-      else
-      tcells.push(i)
+        var Ent=localStorage.getItem(i+monthdata);
+      tcells.push(i+Ent)
   }
-  for (var i = 1; i <= endDate; i++) {
-
-   var Ent=localStorage.getItem(i+monthdata);
   
-   tcelle.push(i+Ent)
-   
-}
 
   setCell(tcell)
   setCells(tcells)
-  setCelle(tcelle)
+  
    },[dtMonth])
 
        
@@ -100,39 +92,27 @@ var dt = new Date();
                                                         //Add Calender Events(tuggle)
 
 
-    const [showText, setShowText] = useState(false);
-    const [showTextve, setShowTexteve] = useState(false);
-
-  const onClick = (user) => {
-    localStorage.setItem('event', user);
-    localStorage.setItem('eventmont', monthdata);
-      setShowText(true)
-    };
-    const onClicks = () => {
-          setShowTexteve(true)
-        };
-  const hideModal = () => setShowText(false);
-  const hideModale = () => setShowTexteve(false);
+  
 
 
 
 
 
-return<center><div  className="card-header">
-    
-    <h1><button id="showevt" className="btn btn-info"  onClick={() => onClicks()}>View Events &euro;</button></h1>
-     <div class="wrapper">
-            <div  class="calendar">
-           
-                <div class="month">
-                    <div class="prev" onClick={() => moveDate("prev")}>
+
+return<center>
+    <button className="x1" onClick={handleCloses}>Exit Event</ button><br></br><br></br>
+     
+            <div class="calendar1">
+               
+                <div class="month1">
+                    <div class="prev1" onClick={() => moveDate("prev")}>
                         <span>&#10094;</span>
                     </div>
                         <div>
-                            <h2 id="month">{monthdata}</h2>
+                            <h2 id="month1">{monthdata}</h2>
                            <p>{years}</p>
                         </div>
-                    <div class="next" onClick={() => moveDate("next")}>
+                    <div class="next1" onClick={() => moveDate("next")}>
                         <span>&#10095;</span>
                     </div>
                 </div>
@@ -146,7 +126,7 @@ return<center><div  className="card-header">
 
 
                
-                <div class="weekdays">
+                <div class="weekdays1">
                     <div>Sun</div>
                     <div>Mon</div>
                     <div>Tue</div>
@@ -166,12 +146,11 @@ return<center><div  className="card-header">
                                                 
                                                 
                                                 */} 
-           <div class="days" >
-           
+           <div class="days1"  >
          {
 
          cell.map((user) => (
-        <div className="prev_date">{user}</div>
+        <div className="prev_date1">{user}</div>
                  ))
       
           }
@@ -195,9 +174,8 @@ return<center><div  className="card-header">
  
         cells.map((user) => (
          
-    <div id="card"
-     {...(user === today.getDate() && dt.getMonth() == today.getMonth() && dt.getFullYear() === today.getFullYear() ? { className : "currentDate" } : null )}
-    onClick={() => onClick(user)}> <p id="tooltiptext">Click For Add Event </p>{user}</div>
+    <div id="dates1">
+    {user}</div>
  
      ))}
            
@@ -206,25 +184,22 @@ return<center><div  className="card-header">
                 </div>
                
             </div>
-          
-        </div>
+      
 
-    </div>
+
    
     
 
                                                   
                                                
-                                                        {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
+
+  
 
 
-    {showText ? <Model handleClose={hideModal} user="user" /> : null}
-
-    {showTextve ? <Modeleve handleCloses={hideModale}  /> : null}
 
    </center>
 }
 
 
 
-export default RenderDate;
+export {Modeleve} ;
