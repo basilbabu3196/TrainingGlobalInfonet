@@ -5,13 +5,12 @@ import { useHistory} from  'react-router-dom'
 import './Modeleve.css';
 var dt = new Date();
 
-const Modeleve = ({handleCloses}) => {
-
+const Modeleve = ({handleCloses}, props) => {
+  
     const [dtMonth,setDtMonth] = useState(dt.getMonth())
     const [cells,setCells] = useState([])
     const [cell,setCell] = useState([])
-    
-    
+   
   var state={
 
         curTime : new Date().toLocaleString(),
@@ -51,7 +50,9 @@ const Modeleve = ({handleCloses}) => {
         "November",
         "December"
     ]
-   var monthdata = months[dt.getMonth()];
+    var thismonth=localStorage.getItem("thismonth")
+    var thisdays=localStorage.getItem("endDate")
+   var monthdata = months[thismonth];
    console.log(dt.getMonth())
     var years= dt.getFullYear()
    useEffect(()=>{
@@ -62,7 +63,7 @@ const Modeleve = ({handleCloses}) => {
         tcell.push(prevDate - x + 1)
      }
      console.log(day);
-     for (var i = 1; i <= endDate; i++) {
+     for (var i = 1; i <= thisdays; i++) {
       
         var Ent=localStorage.getItem(i+monthdata);
       tcells.push(i+Ent)
@@ -77,17 +78,7 @@ const Modeleve = ({handleCloses}) => {
        
                                                         //Date and Month Change
 
-        function moveDate(para) {
-
-            if(para == "prev") {
-                setDtMonth(dt.getMonth() - 1)
-                dt.setMonth(dt.getMonth() - 1);
-            } else if(para == 'next') {
-                setDtMonth(dt.getMonth() + 1)
-                dt.setMonth(dt.getMonth() + 1);
-            }
-           
-        }
+       
    
                                                         //Add Calender Events(tuggle)
 
@@ -100,21 +91,19 @@ const Modeleve = ({handleCloses}) => {
 
 
 return<center>
-    <button className="x1" onClick={handleCloses}>Exit Event</ button><br></br><br></br>
+    <h1>{props.name}</h1>
+    <br></br><br></br>
      
             <div class="calendar1">
                
                 <div class="month1">
-                    <div class="prev1" onClick={() => moveDate("prev")}>
-                        <span>&#10094;</span>
-                    </div>
+                   <div></div>
                         <div>
                             <h2 id="month1">{monthdata}</h2>
                            <p>{years}</p>
                         </div>
-                    <div class="next1" onClick={() => moveDate("next")}>
-                        <span>&#10095;</span>
-                    </div>
+                        <div></div>
+                        <button id="x1" className="btn btn-danger" onClick={handleCloses}>Exit &#10006; Event</ button>
                 </div>
                
                

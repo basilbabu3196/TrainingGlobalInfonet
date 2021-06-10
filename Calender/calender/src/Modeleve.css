@@ -40,6 +40,12 @@ body {
     color: rgb(130, 211, 130);
 }
 
+.month1 .monthyear{
+    position: relative;
+    left: 330px;
+}
+
+
 .weekdays1 {
     background-color: #b1b1b1;
     color: rgb(0, 0, 0);
@@ -52,7 +58,7 @@ body {
     padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
-    color: #1a8d0b;
+    color: #050804;
     
 }
 
@@ -116,12 +122,9 @@ body {
     font-size: 30px;
     font-weight: 500;
 }
-.x1{
+#x1{
     position: absolute;
-    top: 0px;
-    right: 570px;
-    height: 50px;
-    width: 150px;
-    color: rgba(255, 255, 255, 0.877);
-    background-color: #e7003a;
+    top: 110px;
+    right: 340px;
   }
+  

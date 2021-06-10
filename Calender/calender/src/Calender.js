@@ -11,7 +11,7 @@ var dt = new Date();
     const [dtMonth,setDtMonth] = useState(dt.getMonth())
     const [cells,setCells] = useState([])
     const [cell,setCell] = useState([])
-    const [celle,setCelle] = useState([])
+   
     
   var state={
 
@@ -19,8 +19,7 @@ var dt = new Date();
 
     
       }
-      var firstStringChar = state.curTime.substring(0, 1);
-      var LastStringChar = state.curTime.substring(4,8);
+      
      
      
      // const Ent= localStorage.getItem('evt');
@@ -58,7 +57,7 @@ var dt = new Date();
    useEffect(()=>{
     var tcells = []
     var tcell = []
-    var tcelle=[]
+    
     for (var x = day; x > 0; x--) {
         tcell.push(prevDate - x + 1)
      }
@@ -69,17 +68,11 @@ var dt = new Date();
       else
       tcells.push(i)
   }
-  for (var i = 1; i <= endDate; i++) {
-
-   var Ent=localStorage.getItem(i+monthdata);
-  
-   tcelle.push(i+Ent)
-   
-}
+ 
 
   setCell(tcell)
   setCells(tcells)
-  setCelle(tcelle)
+  
    },[dtMonth])
 
        
@@ -109,6 +102,8 @@ var dt = new Date();
       setShowText(true)
     };
     const onClicks = () => {
+        localStorage.setItem('thismonth',dt.getMonth());
+        localStorage.setItem('endDate',endDate);
           setShowTexteve(true)
         };
   const hideModal = () => setShowText(false);
@@ -187,7 +182,7 @@ return<center><div  className="card-header">
                                                 {/* 
                                                     
                                                     
-                                                ADD THIS Month Days
+                                                Add Current Month Days
                                                 
                                                 
                                                 */} 
@@ -218,10 +213,10 @@ return<center><div  className="card-header">
                                                         {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
 
 
-    {showText ? <Model handleClose={hideModal} user="user" /> : null}
+    {showText ? <Model handleClose={hideModal} /> : null}
 
-    {showTextve ? <Modeleve handleCloses={hideModale}  /> : null}
-
+    {showTextve ? <Modeleve handleCloses={hideModale} name={dt.getMonth()} /> : null}
+  
    </center>
 }
 
