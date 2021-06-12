@@ -1,37 +1,39 @@
 import React,{useState} from 'react';
 import './calender.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-const Model = ({handleClose}) => {
+const Model = ({handleClose,monthdat,cyear,dates}) => {
+
   const[toDos,setTodos]=useState([])
 const[toDo,setTodo]=useState('')
- console.log(toDos);
+ 
 
 const datea= localStorage.getItem('event');
-const eventmont=localStorage.getItem('eventmont');
-var datee=datea+eventmont
+
+var datee=dates+monthdat+cyear
 localStorage.setItem(datee,toDos)
 
 
   return (
     
-    <div className="d">
-      <div className="addEvt"> Add Event To  {eventmont} {datea} </div>
+    <div className="model">
+       <article class="card">
+      <div> <h3><b>Add Event To  {monthdat} {datea}&nbsp;{cyear}</b></h3><button className="x1" onClick={handleClose}>X</ button> </div>
       
-      <div className="evt" id="disevent">
+      <div className="borderaddevent">
       {toDos.map((value)=>{
-        return (<div><div className="listdata">
-        <span className="mdj"> {eventmont}{datea}</span> &nbsp; &nbsp; {value}
+        return (<div><br></br><div className="data_eve_list">
+        <span className="mdj"> {monthdat}{datea}</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span className="event_add">{value}</span> 
   
   
-       </div><br></br></div> )
+          </div><br></br></div> )
   })}
       </div>
-     <button className="x" onClick={handleClose}>X</ button><br></br><br></br>
-      <br></br><br></br>
-      <input value={toDo}  onChange={(e)=>setTodo(e.target.value)} type="text" className="event" placeholder="🖊️ Bithday,Holyday,etc..." />
-
-    <button className="EVNT" onClick={()=>setTodos([...toDos,toDo]  ) } type="submit">ADD</button> 
     
+  <form>
+      <input value={toDo} onChange={(e)=>setTodo(e.target.value)} required="required" type="text" className="addtext" placeholder="🖊️ Bithday,Holyday,etc..." />
+      </form>
+    <button className="addcard" onClick={()=>setTodos([...toDos,toDo])}  type="submit">ADD</button> 
+    </article>
     </div>
 
   );

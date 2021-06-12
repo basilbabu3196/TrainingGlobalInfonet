@@ -1,39 +1,25 @@
+
 import React, {useEffect, useState} from 'react';
-
-import { useHistory} from  'react-router-dom'
-
 import './Modeleve.css';
 var dt = new Date();
 
-const Modeleve = ({handleCloses}, props) => {
-  
-    const [dtMonth,setDtMonth] = useState(dt.getMonth())
+const Modeleve = ({handleCloses,mont,da,yea,edate}) => {
+    const [dtMonth,setDtMonth] = useState(mont)
     const [cells,setCells] = useState([])
     const [cell,setCell] = useState([])
    
-  var state={
-
-        curTime : new Date().toLocaleString(),
-
-    
-      }
-      var firstStringChar = state.curTime.substring(0, 1);
-      var LastStringChar = state.curTime.substring(4,8);
-     
-     
-     // const Ent= localStorage.getItem('evt');
+      
     dt.setDate(1);
-    var day = dt.getDay();
-    var today = new Date();
+    var day = da
     var endDate = new Date(
         dt.getFullYear(),
-        dt.getMonth() + 1,
+        mont + 1,
         0
     ).getDate();
 
     var prevDate = new Date(
         dt.getFullYear(),
-        dt.getMonth(),
+        mont,
         0
     ).getDate();
     var months = [
@@ -50,25 +36,22 @@ const Modeleve = ({handleCloses}, props) => {
         "November",
         "December"
     ]
-    var thismonth=localStorage.getItem("thismonth")
-    var thisdays=localStorage.getItem("endDate")
-   var monthdata = months[thismonth];
-   console.log(dt.getMonth())
-    var years= dt.getFullYear()
+   var monthdata = months[mont];
+   console.log(mont)
+    var years= yea;
    useEffect(()=>{
     var tcells = []
     var tcell = []
-  
+    
     for (var x = day; x > 0; x--) {
         tcell.push(prevDate - x + 1)
      }
      console.log(day);
-     for (var i = 1; i <= thisdays; i++) {
-      
-        var Ent=localStorage.getItem(i+monthdata);
+     for (var i = 1; i <= edate; i++) {
+        var Ent=localStorage.getItem(i+monthdata+years);
       tcells.push(i+Ent)
   }
-  
+ 
 
   setCell(tcell)
   setCells(tcells)
@@ -76,34 +59,27 @@ const Modeleve = ({handleCloses}, props) => {
    },[dtMonth])
 
        
-                                                        //Date and Month Change
-
-       
-   
-                                                        //Add Calender Events(tuggle)
-
-
-  
-
-
-
 
 
 
 return<center>
-    <h1>{props.name}</h1>
-    <br></br><br></br>
-     
-            <div class="calendar1">
-               
+
+     <div class="wrapper1">
+            <div  class="calendar1">
+           
                 <div class="month1">
-                   <div></div>
+               
+                    <div>
+                      
+                    </div>
                         <div>
-                            <h2 id="month1">{monthdata}</h2>
+                            <h2 id="month">{monthdata}</h2>
                            <p>{years}</p>
+                           <h1><button id="showevt" className="btn btn-danger"  onClick={handleCloses}>EXit Events &euro;</button></h1>
                         </div>
-                        <div></div>
-                        <button id="x1" className="btn btn-danger" onClick={handleCloses}>Exit &#10006; Event</ button>
+                    <div >
+                       
+                    </div>
                 </div>
                
                
@@ -135,7 +111,8 @@ return<center>
                                                 
                                                 
                                                 */} 
-           <div class="days1"  >
+           <div class="days1" >
+           
          {
 
          cell.map((user) => (
@@ -155,7 +132,7 @@ return<center>
                                                 {/* 
                                                     
                                                     
-                                                ADD THIS Month Days
+                                                Add Current Month Days
                                                 
                                                 
                                                 */} 
@@ -163,8 +140,7 @@ return<center>
  
         cells.map((user) => (
          
-    <div id="dates1">
-    {user}</div>
+    <div id="card1"> {user}</div>
  
      ))}
            
@@ -173,21 +149,23 @@ return<center>
                 </div>
                
             </div>
-      
+          
+        </div>
 
-
+  
    
     
 
                                                   
                                                
+                                                        {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
 
+
+    
   
-
-
-
    </center>
 }
+
 
 
 

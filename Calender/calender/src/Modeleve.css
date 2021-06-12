@@ -1,30 +1,17 @@
-*{
-    box-sizing: border-box;
+.wrapper1 {
+    background-color: #dfe6e9;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0px;
 }
-
-ul {
-    list-style-type: none;
-}
-
-body {
-    font-family: "Lato", sans-serif;
-}
-
-* {
-    margin: 0;
-    box-sizing: border-box;
-}
-
-
 
 .calendar1 {
     margin: auto;
-    position: absolute;
-    top:40px;
-    left:300px;
     width: 800px;
-    height: 600px;
-    background-color: rgb(255, 255, 255);
+    height: 700px;
+    background-color: #fff;
     box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
 
 }
@@ -37,14 +24,8 @@ body {
     padding: 40px 30px;
     text-align: center;
    background-image: url("headbg.jpg");
-    color: rgb(130, 211, 130);
+    color: rgb(167, 228, 111);
 }
-
-.month1 .monthyear{
-    position: relative;
-    left: 330px;
-}
-
 
 .weekdays1 {
     background-color: #b1b1b1;
@@ -58,7 +39,6 @@ body {
     padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
-    color: #050804;
     
 }
 
@@ -66,65 +46,29 @@ body {
 .days1 div {
     text-align: center;
     width: 14.28%;
-   
-   
+    
+    
 }
 
 .days1 div {
-    padding: 10px 0;
+    height: 60px;
     margin-bottom: 10px;
     transition: all 0.4s;
+    
 }
 
 .prev_date1 {
     color: rgb(255, 255, 255);
 }
-.prev_date1:hover {
-    color: rgb(255, 255, 255);
-}
 
-#dates1:hover
+
+#card1
 {
-  background-color: rgb(255, 255, 255);
- 
-}
+    border: rgba(250, 203, 165, 0.425);
+    border-style: groove;
+    font-size:smaller;
+    font-weight:bold ;
+    color: blueviolet;
 
-.currentDate1 {
-    background-color: #abb3aa;
-    color: rgb(68, 49, 49);
-}
 
-.days1 div:hover {
-    cursor: pointer;
-    background-color: #dfe6e9
 }
-
-.prev1,
-.next1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 23px;
-    background-color: rgba(31, 107, 247, 0.315);
-    transition: all 0.4s;
-}
-
-.prev1:hover,
-.next1:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-#month {
-    font-size: 30px;
-    font-weight: 500;
-}
-#x1{
-    position: absolute;
-    top: 110px;
-    right: 340px;
-  }
-  

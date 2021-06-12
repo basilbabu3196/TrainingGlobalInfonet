@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useHistory} from  'react-router-dom'
 import {Model} from './model.js'
 import {Modeleve} from './Modeleve.js'
 import './calender.css';
@@ -13,16 +12,8 @@ var dt = new Date();
     const [cell,setCell] = useState([])
    
     
-  var state={
 
-        curTime : new Date().toLocaleString(),
-
-    
-      }
-      
-     
-     
-     // const Ent= localStorage.getItem('evt');
+ // const Ent= localStorage.getItem('evt');
     dt.setDate(1);
     var day = dt.getDay();
     var today = new Date();
@@ -95,18 +86,20 @@ var dt = new Date();
 
     const [showText, setShowText] = useState(false);
     const [showTextve, setShowTexteve] = useState(false);
-
+    const [dates,setdates] = useState()
   const onClick = (user) => {
     localStorage.setItem('event', user);
-    localStorage.setItem('eventmont', monthdata);
+    setdates(user)
+    console.log(dates);
       setShowText(true)
     };
+    
     const onClicks = () => {
-        localStorage.setItem('thismonth',dt.getMonth());
-        localStorage.setItem('endDate',endDate);
+        // localStorage.setItem('thismonth',dt.getMonth());
+        // localStorage.setItem('endDate',endDate);
           setShowTexteve(true)
         };
-  const hideModal = () => setShowText(false);
+  const hideModal = () => {setShowText(false);}
   const hideModale = () => setShowTexteve(false);
 
 
@@ -115,17 +108,19 @@ var dt = new Date();
 
 return<center><div  className="card-header">
     
-    <h1><button id="showevt" className="btn btn-info"  onClick={() => onClicks()}>View Events &euro;</button></h1>
+   
      <div class="wrapper">
             <div  class="calendar">
            
                 <div class="month">
+               
                     <div class="prev" onClick={() => moveDate("prev")}>
                         <span>&#10094;</span>
                     </div>
                         <div>
                             <h2 id="month">{monthdata}</h2>
                            <p>{years}</p>
+                           <h1><button id="showevt" className="btn btn-info"  onClick={() => onClicks()}>View Events &euro;</button></h1>
                         </div>
                     <div class="next" onClick={() => moveDate("next")}>
                         <span>&#10095;</span>
@@ -192,7 +187,7 @@ return<center><div  className="card-header">
          
     <div id="card"
      {...(user === today.getDate() && dt.getMonth() == today.getMonth() && dt.getFullYear() === today.getFullYear() ? { className : "currentDate" } : null )}
-    onClick={() => onClick(user)}> <p id="tooltiptext">Click For Add Event </p>{user}</div>
+    onClick={() => onClick(user)}> <p id="tooltiptext"> Click  </p>{user}</div>
  
      ))}
            
@@ -213,9 +208,9 @@ return<center><div  className="card-header">
                                                         {/*   DISPLAY DAY EVENT CONTROL MODEL.JS(Another Component) */}
 
 
-    {showText ? <Model handleClose={hideModal} /> : null}
+    {showText ? <Model handleClose={hideModal} monthdat={monthdata} cyear={years} dates={dates} endDate={endDate}/> : null}
 
-    {showTextve ? <Modeleve handleCloses={hideModale} name={dt.getMonth()} /> : null}
+    {showTextve ? <Modeleve handleCloses={hideModale} edate={endDate} yea={years} prvdate={prevDate} da={day} mont={dt.getMonth()} /> : null}
   
    </center>
 }
