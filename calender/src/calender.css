@@ -211,7 +211,7 @@ body {
        top: 60px;
       
       margin: 10px;
-      width: 600px;
+      width: 500px;
       height: 520px;
       border: 1px solid rgb(185, 148, 148);
       box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
@@ -224,7 +224,7 @@ body {
       left: 30px;
       border: rgba(0, 0, 0, 0.2);
       border-style: solid;
-      width: 550px;
+      width: 450px;
       height: 400px;
     }
     .addtext {
@@ -232,7 +232,7 @@ body {
       bottom: 10px;
       left: 20px;
       height: 50px;
-      width: 400px;
+      width: 300px;
     }
    .addcard {
       
@@ -257,7 +257,7 @@ body {
       .data_eve_list
       {
         position: absolute;
-        left: 100px;
+        left: 40px;
         width: 400px;
         height: 30px;
         background-color: rgb(138, 197, 82);

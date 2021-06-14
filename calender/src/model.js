@@ -14,10 +14,10 @@ localStorage.setItem(datee,toDos)
 
 
   return (
-    
+    <center>
     <div className="model">
        <article class="card">
-      <div> <h3><b>Add Event To  {monthdat} {datea}&nbsp;{cyear}</b></h3><button className="x1" onClick={handleClose}>X</ button> </div>
+      <div> <h5><b>Add Event To  {monthdat} {datea}&nbsp;{cyear}</b></h5><button className="x1" onClick={handleClose}>X</ button> </div>
       
       <div className="borderaddevent">
       {toDos.map((value)=>{
@@ -35,7 +35,7 @@ localStorage.setItem(datee,toDos)
     <button className="addcard" onClick={()=>setTodos([...toDos,toDo])}  type="submit">ADD</button> 
     </article>
     </div>
-
+    </center>
   );
 };
 export {Model};

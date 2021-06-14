@@ -75,7 +75,7 @@ return<center>
                         <div>
                             <h2 id="month">{monthdata}</h2>
                            <p>{years}</p>
-                           <h1><button id="showevt" className="btn btn-danger"  onClick={handleCloses}>EXit Events &euro;</button></h1>
+                           <h1><button id="showevt" className="btn btn-danger"  onClick={handleCloses}>Exit Events &euro;</button></h1>
                         </div>
                     <div >
                        
