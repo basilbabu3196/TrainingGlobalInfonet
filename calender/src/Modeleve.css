@@ -64,11 +64,11 @@
 
 #card1
 {
-    border: rgba(250, 203, 165, 0.425);
+    border: rgba(228, 111, 15, 0.151);
     border-style: groove;
     font-size:smaller;
     font-weight:bold ;
-    color: blueviolet;
+    color: rgb(90, 10, 21);
 
 
 }
