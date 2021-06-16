@@ -87,11 +87,19 @@ var dt = new Date();
     const [showText, setShowText] = useState(false);
     const [showTextve, setShowTexteve] = useState(false);
     const [dates,setdates] = useState()
+
+  
+   
+
   const onClick = (user) => {
+    
+   
     localStorage.setItem('event', user);
     setdates(user)
     console.log(dates);
       setShowText(true)
+    
+    
     };
     
     const onClicks = () => {
